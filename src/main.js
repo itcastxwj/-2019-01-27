@@ -6,7 +6,7 @@ import VueResource from 'vue-resource'
 
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
-import { Header ,Swipe, SwipeItem,Button} from 'mint-ui'
+import { Header ,Swipe, SwipeItem,Button,Toast } from 'mint-ui'
 import moment from 'moment';
 import { InfiniteScroll } from 'mint-ui';
 

@@ -2,7 +2,7 @@
   <div>
     <h3>发表评论</h3>
     <hr>请输入你的姓名:
-    <input type="text" v-model="name">
+    <input type="text" v-model="name" placeholder="比如你叫达文西">
     请发表你的评论:
     <textarea placeholder="请你多BB几句" maxlength="120" v-model="message"></textarea>
     <mt-button type="primary" size="large" @click="postmsg">发表评论</mt-button>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { Toast } from "mint-ui"
+// import '../../lib/mui/css/icons-extra.css'
 export default {
   data() {
     return {
@@ -26,7 +28,7 @@ export default {
       message: "",
       list: [
         {
-          id: 1,
+          id: 3,
           name: "谢文钧",
           ctime: new Date(),
           message: "小芳是猪"
@@ -38,7 +40,7 @@ export default {
           message: "聪聪是猪"
         },
         {
-          id: 3,
+          id: 1,
           name: "李聪聪",
           ctime: new Date(),
           message: "小芳和聪聪是猪"
@@ -52,13 +54,23 @@ export default {
   methods: {
     postmsg() {
       if (this.name != "" && this.message != "") {
-        this.list.push({
+        this.list.unshift({
           id: this.list.length + 1,
-          name: this.name,
+          name: this.name.trim(),
           ctime: new Date(),
-          message: this.message
+          message: this.message.trim()
         });
-        this.name = this.message = "";
+        Toast({
+          message: "操作成功",
+          // iconClass: "icon icon-success",
+          duration:2000
+        })
+        this.name = this.message = ""
+      } else {
+        Toast({
+          message: "请确认是否填写完整",
+          duration:1000
+        })
       }
     }
   }
@@ -71,7 +83,7 @@ export default {
   //     var h =dt.getHours().toString().padStart(2, "0")
   //     var n=dt.getMinutes().toString().padStart(2,'0')
   //     var s=dt.getSeconds().toString().padStart(2,'0')
-  //     return y + "-" + m + "-" + d+'  '+h+'-'+n+'-'+s 
+  //     return y + "-" + m + "-" + d+'  '+h+'-'+n+'-'+s
   //   }
   // }
 };
