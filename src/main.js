@@ -22,7 +22,7 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
 Vue.filter('dataFormat',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
-  return moment(dataStr,format(pattern))
+  return moment(dataStr).format(pattern)
 })
 
 var vm=new Vue({

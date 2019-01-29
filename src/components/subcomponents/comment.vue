@@ -11,7 +11,7 @@
       <div class="comment-item" v-for="item in list" :key="item.id">
         <div
           class="up"
-        >{{item.id}}&nbsp;&nbsp;用户:{{item.name}}&nbsp;&nbsp;发表时间:{{item.ctime|dateFormat}}</div>
+        >{{item.id}}&nbsp;&nbsp;用户:{{item.name}}&nbsp;&nbsp;发表时间:{{item.ctime|dataFormat}}</div>
         <div class="down">{{item.message}}</div>
       </div>
     </div>
@@ -61,19 +61,19 @@ export default {
         this.name = this.message = "";
       }
     }
-  },
-  filters: {
-    dateFormat() {
-      var dt = new Date()
-      var y = dt.getFullYear()
-      var m = (dt.getMonth() + 1).toString().padStart(2, "0")
-      var d = dt.getDate().toString().padStart(2, "0")
-      var h =dt.getHours().toString().padStart(2, "0")
-      var n=dt.getMinutes().toString().padStart(2,'0')
-      var s=dt.getSeconds().toString().padStart(2,'0')
-      return y + "-" + m + "-" + d+'  '+h+'-'+n+'-'+s 
-    }
   }
+  // filters: {
+  //   dateFormat() {
+  //     var dt = new Date()
+  //     var y = dt.getFullYear()
+  //     var m = (dt.getMonth() + 1).toString().padStart(2, "0")
+  //     var d = dt.getDate().toString().padStart(2, "0")
+  //     var h =dt.getHours().toString().padStart(2, "0")
+  //     var n=dt.getMinutes().toString().padStart(2,'0')
+  //     var s=dt.getSeconds().toString().padStart(2,'0')
+  //     return y + "-" + m + "-" + d+'  '+h+'-'+n+'-'+s 
+  //   }
+  // }
 };
 </script>
 <style lang="scss" scoped>
