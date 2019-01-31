@@ -26,7 +26,7 @@
             <span class="new">￥2199</span>
           </p>
           <div class="buy">购买数量:
-            <numberbox></numberbox>
+            <numberbox @countCh="getConut" :maxcount="max"></numberbox>
           </div>
           <p class="btn">
             <mt-button type="primary" size="small">立即购买</mt-button>
@@ -42,7 +42,7 @@
       <div class="mui-card-content">
         <div class="mui-card-content-inner">
           <p>商品货号:SD1541544551</p>
-          <p>库存情况:60件</p>
+          <p>库存情况:{{max}}件</p>
           <p>{{ctime|dataFormat}}</p>
         </div>
       </div>
@@ -61,7 +61,9 @@ export default {
   data() {
     return {
       ctime: new Date(),
-      ball: false
+      ball: false,
+      selectCount:1,
+      max:600
     };
   },
   methods: {
@@ -92,6 +94,10 @@ export default {
     },
     afterenter(el) {
       this.ball = !this.ball
+    },
+    getConut(count){
+      this.selectCount=count;
+      console.log('父子件拿到的数字为:'+this.selectCount)
     }
   },
 

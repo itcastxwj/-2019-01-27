@@ -3,6 +3,8 @@ import app from './App.vue'
 import router from './router.js'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import Vuex from 'vurx'
+Vue.use(Vuex)
 
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
@@ -25,8 +27,15 @@ Vue.filter('dataFormat',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
   return moment(dataStr).format(pattern)
 })
 
+var store=new Vuex.Store({
+  state:{},
+  mutations:{},
+  getters:{}
+})
+
 var vm=new Vue({
   el:'#app',
   render:c=>c(app),
-  router//挂载路由对象
+  router,//挂载路由对象
+  store
 })
