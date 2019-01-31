@@ -1,9 +1,9 @@
 <template>
   <div class="goods">
     <div class="goodslist">
-      <a href="javascript:;">
+      <router-link to="/home/goodsinfo" tag="a">
         <img src="https://i1.mifile.cn/a1/pms_1537323963.1278763!220x220.jpg">
-      </a>
+      </router-link>
       <h6>小米8 青春版 4GB+64GB</h6>
       <div class="goodsfooter">
         <div class="top">
@@ -211,7 +211,7 @@ export default {
   .goodslist{
     width: 49%;
     border: 1px solid #ccc;
-    box-shadow:0 0 8px #ccc;
+    box-shadow:0 0 5px red;
     margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
@@ -229,10 +229,21 @@ export default {
       color:#000;
       text-align: left;
       padding-left: 5px;
+      animation:move 1s ease infinite 0.3s alternate;
+    }
+    @keyframes move {
+      0% {
+        opacity: 1;
+      }
+      100%{
+        opacity:0.5;
+        transform: translateX(30px);
+      }
     }
     .goodsfooter{
       background-color: #ddd;
       padding: 2px;
+      cursor:pointer;
       .top{
         margin-bottom: 4px;
         .now{
@@ -244,6 +255,8 @@ export default {
           text-decoration: line-through;
           margin-left: 6px;
           color: #98989C;
+          font-family: "微软雅黑";
+          font-style: italic;
         }
       }
       .bottom{

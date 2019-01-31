@@ -1,11 +1,7 @@
 <template>
   <div>
     <!-- 轮播图 -->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item><img src="http://www.itcast.cn/images/slidead/BEIJING/2017440109442800.jpg" alt=""></mt-swipe-item>
-      <mt-swipe-item><img src="http://www.itcast.cn/images/slidead/BEIJING/2017511009514700.jpg" alt=""></mt-swipe-item>
-      <mt-swipe-item><img src="http://www.itcast.cn/images/slidead/BEIJING/2017421414422600.jpg" alt=""></mt-swipe-item>
-    </mt-swipe>
+    <swiper></swiper>
     <!-- 九宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -50,6 +46,15 @@
 </template>
 
 <script>
+import swiper from '../subcomponents/swiper.vue'
+export default {
+  data(){
+    return{}
+  },
+  components:{
+    'swiper':swiper
+  }
+}
 // import { Toast } from "mint-ui";
 // export default {
 //   data() {
@@ -77,33 +82,7 @@
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe {
-  height: 300px;
-  // .mint-swipe-item:nth-child(1){
-  //   background-color: #f00;
-  // }
-  // .mint-swipe-item:nth-child(2){
-  //   background-color: #0f0;
-  // }
-  // .mint-swipe-item:nth-child(3){
-  //   background-color: #00f;
-  // }
-  .mint-swipe-item {
-    // &:nth-child(1) {
-    //   background-color: rgb(189, 226, 25);
-    // }
-    // &:nth-child(2) {
-    //   background-color: rgb(13, 126, 23);
-    // }
-    // &:nth-child(3) {
-    //   background-color: rgb(61, 19, 138);
-    // }
-    img{
-      width: 375px;
-      height: 300px;
-    }
-  }
-}
+
 .mui-grid-view.mui-grid-9 .mui-table-view-cell{
   background-color: #fff;
   border: none;
