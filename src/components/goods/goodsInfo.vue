@@ -74,6 +74,11 @@ export default {
     },
     getToCar() {
       this.ball = !this.ball
+      var goodsinfo={
+        selected:this.selectCount,
+        max:this.max
+      }
+      this.$store.commit('addTocar',goodsinfo)
     },
     beforeenter(el) {
       el.style.transform = "translate(0,0)"
@@ -89,7 +94,7 @@ export default {
 
 
       el.style.transform = `translate(${x}px,${y}px)`
-      el.style.transition = "all 1s cubic-bezier(.4,-0.3,1,.68)"
+      el.style.transition = "all 0.4s cubic-bezier(.4,-0.3,1,.68)"
       done()
     },
     afterenter(el) {
